@@ -12,6 +12,7 @@ import java.util.Map;
 
 public final class JavascriptEP extends AbstractEntryProcessor<Integer, String> implements IdentifiedDataSerializable {
     private String source;
+    private String language;
 
     JavascriptEP() {
 
@@ -38,9 +39,11 @@ public final class JavascriptEP extends AbstractEntryProcessor<Integer, String> 
 
     public void writeData(ObjectDataOutput out) throws IOException {
         out.writeUTF(source);
+        out.writeUTF(language);
     }
 
     public void readData(ObjectDataInput in) throws IOException {
         source = in.readUTF();
+        language = in.readUTF();
     }
 }
